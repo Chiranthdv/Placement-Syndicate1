@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Service</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Resume Service</h1>
+
+    <div class="box">
+
+        <form id="resumeForm">
+
+            <label>
+                Select your resume:
+            </label>
+
+            <br>
+
+            <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.docx"
+                required
+            >
+
+            <br>
+
+            <button type="submit">
+                Upload Resume
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <script>
+
+        const form = document.getElementById("resumeForm");
+
+        const result = document.getElementById("result");
+
+
+        form.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+
+            const fileInput =
+                document.getElementById("resume");
+
+
+            const file = fileInput.files[0];
+
+
+            if (!file) {
+
+                result.textContent =
+                    "Please select a resume.";
+
+                return;
+            }
+
+
+            const formData = new FormData();
+
+            formData.append("resume", file);
+
+
+            result.textContent =
+                "Uploading resume...";
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/resume/upload",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    result.textContent =
+                        data.message ||
+                        "Upload failed.";
+
+                    return;
+                }
+
+
+                result.textContent =
+                    data.message;
+
+            } catch (error) {
+
+                console.error(error);
+
+                result.textContent =
+                    "Could not connect to Resume Service.";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

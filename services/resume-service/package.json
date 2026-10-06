@@ -1,0 +1,29 @@
+{
+  "name": "resumeservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "worker": "node worker.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.0",
+    "amqplib": "^2.0.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.6.0",
+    "mammoth": "^1.12.3",
+    "mongoose": "^9.10.2",
+    "multer": "^2.4.0",
+    "natural": "^8.1.1",
+    "pdf-parse": "^2.4.5"
+  }
+}

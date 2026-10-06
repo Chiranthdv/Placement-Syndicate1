@@ -1,0 +1,12 @@
+{
+  "name": "placement-syndicate-mern",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Placement Syndicate MERN Platform",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
