@@ -20,7 +20,7 @@ API Gateway (Express.js :8200) — JWT Auth + Rate Limiting + Proxy
 | Frontend | React 18, Vite, Axios, React Router 6 |
 | Backend | Express.js, Mongoose, JWT, Joi |
 | Database | MongoDB |
-| Messaging |, amqplib (RabbitMQ) |
+| Messaging |amqplib (RabbitMQ) |
 | Gateway | http-proxy-middleware, express-rate-limit |
 | AI/NLP | Python FastAPI (external service) |
 
@@ -28,7 +28,7 @@ API Gateway (Express.js :8200) — JWT Auth + Rate Limiting + Proxy
 
 - **Node.js 18+** and **npm**
 - **MongoDB** running on `localhost:27017`
-- **Docker** (optional, for Kafka/RabbitMQ/Redis)
+- **Docker** (optional, for RabbitMQ/Redis)
 
 ## Quick Start
 
